@@ -20,6 +20,7 @@ const helmet = require('helmet');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
+const { func } = require('joi');
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
 
 mongoose.connect(dbUrl, {
@@ -32,10 +33,11 @@ mongoose.connect(dbUrl, {
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', () => {
-	console.log('Database connected');
+	console.log(`Database connected: ${db.name}`);
 });
 
 const app = express();
+console.log(app.get('env'), 'mode');
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -50,7 +52,7 @@ const secret = process.env.SECRET || 'thisshouldbeabettersecret';
 
 const store = MongoStore.create({
 	mongoUrl: dbUrl,
-	secret: secret,
+	secret,
 	touchAfter: 60 * 60 * 24,
 });
 store.on('error', function (err) {
