@@ -49,13 +49,13 @@
 							<div class="container p-0 mb-3" id="current-images">
 								<label class="form-label m-0" for="description">Manage Images</label>
 								<hr class="my-2">
-								<% //const numImages = document; %> 
-								<% console.log(`EJS: ${device}`); %>
+								<% const numImages = device === 'phone' ? 2 : 4; %> 
+								<% const colDef = numImages === 2 ? 'col-6' : 'col-3' %>
 								<% campground.images.forEach(function(img, i) { %>
-								<% if (i % 4 === 0) { %> 
+								<% if (i % numImages === 0) { %> 
 									<div class="row justify-content-around g-3">
 										<% } %>
-										<div class="col-3 d-flex flex-column justify-content-center align-items-center"> 
+										<div class="<%= colDef %> d-flex flex-column justify-content-center align-items-center"> 
 											<img class="img-thumbnail mb-1" src="<%= img.thumbnail %>" alt="" srcset="">
 											<div class="form-check-inline m-0">
 												<input type="checkbox" id="image-<%= i %>" name="deleteImages[]"
@@ -63,7 +63,7 @@
 												<label id="delete-label" for="image-<%= i %>">Delete?</label>
 											</div>
 										</div>
-									<% if (i % 4 === 3) { %> 
+									<% if (i % numImages === numImages - 1) { %> 
 									</div>
 									<% }}) %>
 								<hr class="my-2">
