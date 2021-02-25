@@ -3,7 +3,7 @@ const map = new mapboxgl.Map({
 	container: 'show-map',
 	style: 'mapbox://styles/mapbox/dark-v10',
 	center: campground.geometry.coordinates,
-	zoom: 8,
+	zoom: 9,
 });
 
 map.addControl(new mapboxgl.NavigationControl());

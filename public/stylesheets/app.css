@@ -2,6 +2,21 @@ body {
     background-color: rgba(245, 245, 245);
 }
 
+h2 {
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-shadow: 2px 5px 5px rgba(55, 150, 255, 0.5), 0px -4px 10px rgba(255, 255, 255, 0.3);
+}
+
+h3 {
+    letter-spacing: 2px;
+    text-shadow: 2px 4px 4px rgba(55, 150, 255, 0.5), 0px -4px 10px rgba(255, 255, 255, 0.3);
+}
+
+.carousel-item {
+    background-color: black;
+}
+
 #cluster-map {
     width: 100%;
     height: 500px;
@@ -9,11 +24,52 @@ body {
 
 #show-map {
     width: 100%;
-    height: 300px;
+    height: 360px;
 }
 
 @media (max-width: 992px) {
     #delete-label {
         font-size: 0.8rem;
+    }
+}
+
+.show-buttons .btn {
+    width: 20%;
+}
+
+@media (max-width: 768px) {
+    .show-buttons .btn {
+        width: 35%;
+    }
+}
+
+.show-submit {
+    width: 30%;
+}
+
+@media (max-width: 768px) {
+    .show-submit {
+        width: 45%;
+    }
+}
+
+.alert {
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .alert {
+        width: 40%;
+    }
+}
+
+@media (min-height: 768px) {
+    .alert {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5rem;
+        position: absolute;
     }
 }
