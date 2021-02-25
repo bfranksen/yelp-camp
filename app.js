@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const MongoStore = require('connect-mongo').default;
+const device = require('device');
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
@@ -127,7 +128,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-	// console.log(req.query);
+	// console.log(req.headers['user-agent']);
+	console.log(device(req.headers['user-agent']).type);
 	res.locals.user = req.user;
 	res.locals.success = req.flash('success');
 	res.locals.error = req.flash('error');

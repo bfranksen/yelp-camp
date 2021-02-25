@@ -15,6 +15,7 @@
 		"cloudinary": "^1.25.0",
 		"connect-flash": "^0.1.1",
 		"connect-mongo": "^4.2.0",
+		"device": "^0.3.12",
 		"dotenv": "^8.2.0",
 		"ejs": "^3.1.6",
 		"ejs-mate": "^3.0.0",
