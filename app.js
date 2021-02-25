@@ -128,9 +128,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-	// console.log(req.headers['user-agent']);
-	console.log(device(req.headers['user-agent']).type);
 	res.locals.user = req.user;
+	res.locals.device = device(req.headers['user-agent']).type;
 	res.locals.success = req.flash('success');
 	res.locals.error = req.flash('error');
 	next();
