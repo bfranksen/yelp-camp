@@ -5,4 +5,5 @@ Hosted at: https://yelp-camp-bf.herokuapp.com/
 
 **Goals**
   - Further customize styling
-  - Create seed data for production version
+  - Create and upload seed data for production version
+  - Clean up file structure
